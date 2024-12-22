@@ -10,19 +10,21 @@ This repository contains the ~~official~~ modified implementation of [tinyCLAP](
 
 First of all, let's clone the repo and install the requirements:
 
-
-> [!WARNING]  
+> [!WARNING]
 > Ensure rustc (the rust compiler) is installed as it is needed for other dependencies.
 
 for macos
+
 ```zsh
 brew install rust
 ```
 
 for ubuntu
+
 ```bash
 apt install rust
 ```
+
 then download the repo and move into it
 
 ```setup
@@ -61,8 +63,6 @@ _Note_:  The checkpoints contain only the student model, so the text encoder wil
 
 `models` folder contains `Cnn14.ckpt` and `phinet_alpha_1.50_beta_0.75_t0_6_N_7.ckpt` which were available on the huggingface site (its also on the `getmodels.sh` script.
 
-
-
 To run inference using the pretrained models, use:
 
 ```bash
@@ -77,21 +77,12 @@ Please refer to the HF repo for a list of available tinyCLAP models.
 
 ## Modifications
 
- - was running on CUDA accelaration layer, switch to cpu as its more restrictive and should benefit the smaller model more
- - 
+- was running on CUDA accelaration layer, switch to cpu as its more restrictive and should benefit the smaller model more
 
-## Citing tinyCLAP
+```bash
+python tinyclap.py hparams/distill_clap.yaml --pretrained_CLAP fpaissan/tinyCLAP/$MODEL_NAME.ckpt --zs_eval True --esc_folder $HOME/Github/tinyCLAP/datasets/ESC50
 
-```
-@inproceedings{paissan24_interspeech,
-  title     = {tinyCLAP: Distilling Constrastive Language-Audio Pretrained Models},
-  author    = {Francesco Paissan and Elisabetta Farella},
-  year      = {2024},
-  booktitle = {Interspeech 2024},
-  pages     = {1685--1689},
-  doi       = {10.21437/Interspeech.2024-193},
-  issn      = {2958-1796},
-}
+python tinyclap.py hparams/distill_clap.yaml --use_pretrained $home/Github/tinyCLAP/models/$MODEL_NAME.ckpt --zs_eval True --esc_folder $HOME/Github/tinyCLAP/datasets/ESC50
 ```
 
 ## License
