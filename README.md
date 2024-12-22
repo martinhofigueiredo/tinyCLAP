@@ -9,7 +9,10 @@ This repository contains the ~~official~~ modified implementation of [tinyCLAP](
 ## Requirements
 
 First of all, let's clone the repo and install the requirements:
-1st Ensure rustc (the rust compiler) is installed as it is needed for other dependencies.
+
+
+> [!WARNING]  
+> Ensure rustc (the rust compiler) is installed as it is needed for other dependencies.
 
 for macos
 ```zsh
@@ -20,6 +23,7 @@ for ubuntu
 ```bash
 apt install rust
 ```
+then download the repo and move into it
 
 ```setup
 git clone https://github.com/martinhofigueiredo/tinyCLAP & cd tinyCLAP
