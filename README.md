@@ -26,23 +26,6 @@ git clone https://github.com/martinhofigueiredo/tinyCLAP & cd tinyCLAP
 pip install -r extra_requirements.txt
 ```
 
-## Training
-
-You can distill your tinyCLAP model(s) using this command:
-
-```bash
-MODEL_NAME=phinet_alpha_1.50_beta_0.75_t0_6_N_7
-
-./run_tinyCLAP.sh $MODEL_NAME $DATASET_LOCATION
-```
-
-Note that `MODEL_NAME` is formatted such that the script will automatically parse the configuration for the student model.
-You can change parameters by changing the model name.
-
-Please note:
-- To use the original CLAP encoder in the distillation setting, replace the model name with `Cnn14`;
-- To reproduce the variants of PhiNet from the manuscript, refer to the hyperparameters listed in Table 1.
-
 ## Evaluation
 
 The command to evaluate the model on each dataset varies slightly among datasets.
@@ -72,10 +55,17 @@ You can download pretrained models from the [tinyCLAP HF](https://huggingface.co
 
 _Note_:  The checkpoints contain only the student model, so the text encoder will be downloaded separately.
 
+`models` folder contains `Cnn14.ckpt` and `phinet_alpha_1.50_beta_0.75_t0_6_N_7.ckpt` which were available on the huggingface site (its also on the `getmodels.sh` script.
+
+
+
 To run inference using the pretrained models, use:
 
 ```bash
+
+
 python tinyclap.py hparams/distill_clap.yaml --pretrained_clap fpaissan/tinyCLAP/$MODEL_NAME.ckpt --zs_eval True --esc_folder $PATH_TO_ESC
+
 ```
 
 This command will automatically download the checkpoint if present in the zoo of pretrained models. Make sure to change the dataset configuration file based on the evaluation.
