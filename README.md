@@ -88,8 +88,10 @@ python tinyclap.py hparams/distill_clap.yaml --use_pretrained $home/Github/tinyC
 ## Hugging Face Space
 
  Through the website for the repository in hugging face the website provides a small website to interface with model. this allows for a inference with no computation cost on the user but at a time cost. 
- 
- ![tinyCLAP HF](https://huggingface.co/fpaissan/tinyCLAP)
+
+ [tinyCLAP HF](https://huggingface.co/fpaissan/tinyCLAP)
+
+ ![](https://fpaissan-tinyclap.hf.space/)
 
 
 ## License
