@@ -29,6 +29,9 @@ then download the repo and move into it
 
 ```setup
 git clone https://github.com/martinhofigueiredo/tinyCLAP & cd tinyCLAP
+
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r extra_requirements.txt
 ```
 
@@ -43,17 +46,6 @@ Below are listed all the necessary commands.
 python tinyclap.py hparams/distill_clap.yaml --experiment_name tinyCLAP_$MODEL_NAME --zs_eval True --esc_folder $PATH_TO_ESC
 ```
 
-### UrbanSound8K
-
-```bash
-python tinyclap.py hparams/distill_clap.yaml --experiment_name tinyCLAP_$MODEL_NAME --zs_eval True --us8k_folder $PATH_TO_US8K
-```
-
-### TUT17
-
-```bash
-python tinyclap.py hparams/distill_clap.yaml --experiment_name tinyCLAP_$MODEL_NAME --zs_eval True --tut17_folder $PATH_TO_TUT17
-```
 
 ## Pre-trained Models
 
@@ -80,8 +72,9 @@ Please refer to the HF repo for a list of available tinyCLAP models.
 - was running on CUDA accelaration layer, switch to cpu as its more restrictive and should benefit the smaller model more
 
 ```bash
+#uses model from hugging face repo
 python tinyclap.py hparams/distill_clap.yaml --pretrained_CLAP fpaissan/tinyCLAP/$MODEL_NAME.ckpt --zs_eval True --esc_folder $HOME/Github/tinyCLAP/datasets/ESC50
-
+#uses local model from folder 
 python tinyclap.py hparams/distill_clap.yaml --use_pretrained $home/Github/tinyCLAP/models/$MODEL_NAME.ckpt --zs_eval True --esc_folder $HOME/Github/tinyCLAP/datasets/ESC50
 ```
 

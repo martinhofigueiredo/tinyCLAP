@@ -129,13 +129,13 @@ class CLAPBrain(sb.Brain):
 
             if aud_shared_student is not None:
                 class_pred = self.compute_sim(aud_shared_student, e_t_class).softmax(-1)
-
             uttid = torch.ones(e_t_class.shape[0])
             self.acc_metric.append(
                 uttid,
                 predict=class_pred,
                 target=labels,
             )
+            #print(class_pred, labels) i know here are the values i want but i cant extract them
 
         if stage != sb.Stage.TEST:
             if hasattr(self.hparams, "lr_annealing"):
