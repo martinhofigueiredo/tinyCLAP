@@ -436,7 +436,7 @@ class ESC50(Dataset):
         reading_transformations: Optional[nn.Module] = None,
         download: bool = True,
         train: bool = True,
-        cut_off: int = 500,
+        cut_off: int = 20,
     ):
         super().__init__()
         self.root = os.path.expanduser(root)

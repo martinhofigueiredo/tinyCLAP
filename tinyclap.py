@@ -6,7 +6,7 @@ Authors
 """
 
 import sys
-
+import pandas as pd
 import speechbrain as sb
 import torch
 import torch.nn as nn
@@ -14,10 +14,9 @@ import torch.nn.functional as F
 from hyperpyyaml import load_hyperpyyaml
 from speechbrain.utils.distributed import run_on_main
 from speechbrain.utils.metric_stats import MetricStats
-
+from speechbrain.utils.metric_stats import BinaryMetricStats, ClassificationStats
 from clap_datasets import prepare_clap_datasets
 
-from sklearn.metrics import f1_score, recall_score, precision_score, confusion_matrix
 
 torch.backends.cudnn.enabled = False # Turn off cuDNN
 
@@ -156,7 +155,7 @@ class CLAPBrain(sb.Brain):
             return (predict.unsqueeze(1) == target).float().squeeze()
 
         self.acc_metric = MetricStats(metric=accuracy_value)
-
+    
         return super().on_stage_start(stage, epoch)
 
     def on_stage_end(self, stage, stage_loss, epoch=None):
@@ -238,7 +237,6 @@ class CLAPBrain(sb.Brain):
 
 
 if __name__ == "__main__":
-
     # CLI:
     hparams_file, run_opts, overrides = sb.parse_arguments(sys.argv[1:])
 

@@ -8,10 +8,16 @@ def zeroshot(file, prompt):
             prompt=prompt,
             api_name="/predict"
     )
+
     return result
 
-if __name__ == "__main__":
 
+
+
+if __name__ == "__main__":
     output = zeroshot("/home/martinhof/Github/tinyCLAP/datasets/ESC50/ESC-50-master/audio/1-7973-A-7.wav","this is the sound of a rodent")
     # Output the result
     print("Inference Output:", output)
+
+
+
