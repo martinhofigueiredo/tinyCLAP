@@ -85,6 +85,13 @@ python tinyclap.py hparams/distill_clap.yaml --pretrained_CLAP fpaissan/tinyCLAP
 python tinyclap.py hparams/distill_clap.yaml --use_pretrained $home/Github/tinyCLAP/models/$MODEL_NAME.ckpt --zs_eval True --esc_folder $HOME/Github/tinyCLAP/datasets/ESC50
 ```
 
+## Hugging Face Space
+
+ Through the website for the repository in hugging face the website provides a small website to interface with model. this allows for a inference with no computation cost on the user but at a time cost. 
+ 
+ ![tinyCLAP HF](https://huggingface.co/fpaissan/tinyCLAP)
+
+
 ## License
 
 To promote reproducibility and follow-up research on the topic, we release all code and pretrained weights publicly (Apache 2.0 License).
