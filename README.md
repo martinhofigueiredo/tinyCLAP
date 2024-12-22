@@ -2,16 +2,27 @@
 
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-blue)](https://huggingface.co/fpaissan/tinyCLAP) [![arXiv](https://img.shields.io/badge/10.21437%2FInterspeech.2024-red?label=paper-pdf)](https://www.isca-archive.org/interspeech_2024/paissan24_interspeech.pdf) [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/fpaissan/tinyCLAP/blob/main/LICENSE)
 
-This repository contains the official implementation of [tinyCLAP](https://www.isca-archive.org/interspeech_2024/paissan24_interspeech.html).
+This repository contains the ~~official~~ modified implementation of [tinyCLAP](https://www.isca-archive.org/interspeech_2024/paissan24_interspeech.html).
 
 ![tinyCLAP overview](https://francescopaissan.it/tinyclapweb/assets/overview.png)
 
 ## Requirements
 
 First of all, let's clone the repo and install the requirements:
+1st Ensure rustc (the rust compiler) is installed as it is needed for other dependencies.
+
+for macos
+```zsh
+brew install rust
+```
+
+for ubuntu
+```bash
+apt install rust
+```
 
 ```setup
-git clone https://github.com/fpaissan/tinyCLAP & cd tinyCLAP
+git clone https://github.com/martinhofigueiredo/tinyCLAP & cd tinyCLAP
 pip install -r extra_requirements.txt
 ```
 
