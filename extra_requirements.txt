@@ -1,6 +1,7 @@
 speechbrain
 pandas
-transformers==4.28.1
+transformers==4.36
+tokenizers>=0.14.1
 torchlibrosa
 micromind
 torchinfo
