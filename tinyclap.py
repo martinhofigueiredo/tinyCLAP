@@ -17,7 +17,9 @@ from speechbrain.utils.metric_stats import MetricStats
 
 from clap_datasets import prepare_clap_datasets
 
-torch.backends.cudnn.enabled = False
+from sklearn.metrics import f1_score, recall_score, precision_score, confusion_matrix
+
+torch.backends.cudnn.enabled = False # Turn off cuDNN
 
 eps = 1e-10
 
@@ -265,7 +267,6 @@ if __name__ == "__main__":
     # Tensorboard logging
     if hparams["use_tensorboard"]:
         from speechbrain.utils.train_logger import TensorboardLogger
-
         hparams["tensorboard_train_logger"] = TensorboardLogger(
             hparams["tensorboard_logs_folder"]
         )
@@ -316,7 +317,6 @@ if __name__ == "__main__":
         clap_brain.checkpointer.recover_if_possible(
             min_key="loss",
         )
-
         test_stats = clap_brain.evaluate(
             test_set=datasets["train"],
             min_key="loss",

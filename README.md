@@ -75,6 +75,11 @@ python tinyclap.py hparams/distill_clap.yaml --pretrained_clap fpaissan/tinyCLAP
 This command will automatically download the checkpoint if present in the zoo of pretrained models. Make sure to change the dataset configuration file based on the evaluation.
 Please refer to the HF repo for a list of available tinyCLAP models.
 
+## Modifications
+
+ - was running on CUDA accelaration layer, switch to cpu as its more restrictive and should benefit the smaller model more
+ - 
+
 ## Citing tinyCLAP
 
 ```
