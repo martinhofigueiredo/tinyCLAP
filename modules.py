@@ -381,8 +381,8 @@ class CLAP(nn.Module):
 
         self.logit_scale = nn.Parameter(torch.ones([]) * np.log(1 / 0.07))
 
-        state_dict = torch.load(ckpt_path)["model"]
-        self.load_state_dict(self.clean_state_dict(state_dict))
+        state_dict = torch.load(ckpt_path, map_location='cpu')["model"]
+
         print("Loaded pretrained CLAP checkpoint.")
 
     @staticmethod

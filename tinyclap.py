@@ -241,11 +241,19 @@ if __name__ == "__main__":
     hparams_file, run_opts, overrides = sb.parse_arguments(sys.argv[1:])
 
     # Initialize ddp (useful only for multi-GPU DDP training)
-    sb.utils.distributed.ddp_init_group(run_opts)
+    #sb.utils.distributed.ddp_init_group(run_opts)
 
     # Load hyperparameters file with command-line overrides
     with open(hparams_file) as fin:
         hparams = load_hyperpyyaml(fin, overrides)
+
+    # Ensure the device is set to CPU
+    run_opts = {
+        "device": "cpu"
+    }
+
+    # Move the model to the CPU
+    hparams["clap"].to(run_opts["device"])
 
     # Create experiment directory
     sb.create_experiment_directory(

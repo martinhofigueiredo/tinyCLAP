@@ -573,7 +573,7 @@ def prepare_clap_datasets(hparams):
                 batch_size=hparams["batch_size"],
                 pin_memory=True,
                 persistent_workers=True,
-                num_workers=128,
+                num_workers=12, #max workers for cpu
             ),
         }
 
@@ -588,6 +588,6 @@ def prepare_clap_datasets(hparams):
             shuffle=True,
             pin_memory=True,
             persistent_workers=True,
-            num_workers=8,
+            num_workers=12, #max workers for cpu
         ),
     }
