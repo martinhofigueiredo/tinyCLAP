@@ -77,7 +77,12 @@ class AudioCapsDataset(Dataset):
     ):
         super().__init__()
         self.base_folder: Path = data_folder.joinpath(split)
-        self.meta = pd.read_csv(data_folder.joinpath(f"{split}.csv"))[
+        
+        #self.meta = pd.read_csv(data_folder.joinpath(f"{split}.csv"))[
+
+        # This CSV is available on the internet so we can get it there
+        splits = {'train': 'data/train-00000-of-00001-dfc9e682a70b4097.parquet', 'validation': 'data/validation-00000-of-00001-56ae1ba28294095a.parquet', 'test': 'data/test-00000-of-00001-069405200b9b7a9f.parquet'}
+        self.meta = pd.read_parquet("hf://datasets/d0rj/audiocaps/" + splits[str])[
             ["youtube_id", "caption"]
         ]
         actually_downloaded = [
