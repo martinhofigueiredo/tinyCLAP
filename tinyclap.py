@@ -15,7 +15,7 @@ from hyperpyyaml import load_hyperpyyaml
 from speechbrain.utils.distributed import run_on_main
 from speechbrain.utils.metric_stats import MetricStats
 from speechbrain.utils.metric_stats import BinaryMetricStats, ClassificationStats
-from clap_datasets import prepare_clap_datasets
+from .clap_datasets import prepare_clap_datasets
 
 
 torch.backends.cudnn.enabled = False # Turn off cuDNN
