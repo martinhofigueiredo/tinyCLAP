@@ -84,7 +84,7 @@ python tinyclap.py hparams/distill_clap.yaml --use_pretrained $home/Github/tinyC
 
  [tinyCLAP HF](https://huggingface.co/fpaissan/tinyCLAP)
 
- ![](https://fpaissan-tinyclap.hf.space/)
+ [Hugging Face Space](https://fpaissan-tinyclap.hf.space/)
 
 
 ## License
